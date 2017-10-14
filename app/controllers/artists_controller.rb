@@ -1,15 +1,15 @@
 class ArtistsController < ApplicationController
-
-  def show; end
+  before_action :set_artist, only: [:show]
 
   def index
-     @artist = Artist.all
+     @artists = Artist.all
   end
+
 
   private
 
-  def image_params
-  params[:images].present? ? params.require(:images) : []
+  def set_artist
+    @artist = Artist.find(params[:id])
   end
 
 end
