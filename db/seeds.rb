@@ -9,7 +9,8 @@ artist_1 = Artist.create!(
   after being injured in a bicycle accident. She has been influenced by such blues and jazz artists
   as Judy Garland, Janis Joplin, Miles Davis, Duke Ellington, Stan Getz and George Gershwin as well
   as Latin music artists such as Caetano Veloso. She has been nominated for a Grammy Award.",
-  hometown: "Philadelphia",)
+  hometown: "Philadelphia",
+  photos: [])
 
 artist_2 = Artist.create!(
   name: "Florence and the Machine",
@@ -17,14 +18,16 @@ artist_2 = Artist.create!(
   that formed in London in 2007, consisting of lead singer Florence Welch, keyboardist Isabella Summers, and
    a collaboration of other artists. The band's music is renowned for its dramatic and eccentric
    production and also Welch's powerful vocal performances.",
-  hometown: "London",)
+   hometown: "London",
+   photos: [])
 
 artist_3 = Artist.create!(
  name: "Bob Marley",
  biography: "Robert Nesta Marley, OM (6 February 1945 – 11 May 1981) was a Jamaican
  singer-songwriter, musician, guitarist and a musical and cultural icon who
   achieved international fame and acclaim",
- hometown: "TrenchTown, Kingston Jamaica",)
+ hometown: "TrenchTown, Kingston Jamaica",
+photos: [])
 
 artist_4 = Artist.create!(
  name: "Robbie Williams",
@@ -32,7 +35,8 @@ artist_4 = Artist.create!(
  is an English singer, songwriter and actor. He was a member of the pop
  group Take That from 1990 to 1995 and again from 2009 to 2012. He has also
  had commercial success as a solo artist.",
- hometown: "Staffordshire",)
+ hometown: "Staffordshire",
+photos: [])
 
 #seed some songs
 song_1 = Song.create(
@@ -86,13 +90,7 @@ song_8= Song.create(
 )
 
 # Photos
-photo1 = Photo.create!(remote_image_url: "", artist: artist_1)
-photo2 = Photo.create!(remote_image_url: "", artist: artist_2)
-photo3 = Photo.create!(remote_image_url: "", artist: artist_3)
-photo4 = Photo.create!(remote_image_url: "", artist: artist_4)
-
-
-#photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997627/Melody_Gardot_we3jfc.jpg", artist: artist_1)
-#photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/florencemachine_s7ac3o.jpg", artist: artist_2)
-#photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/Bob_Marley_qih5du.jpg", artist: artist_3)
-#photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/Robbie_Williams_ah0d9n.jpg", artist: artist_4)
+photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997627/Melody_Gardot_we3jfc.jpg", artist: artist_1)
+photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/florencemachine_s7ac3o.jpg", artist: artist_2)
+photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/Bob_Marley_qih5du.jpg", artist: artist_3)
+photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/Robbie_Williams_ah0d9n.jpg", artist: artist_4)

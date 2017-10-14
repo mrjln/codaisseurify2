@@ -15,6 +15,11 @@
         </div>
 
 
+        <h4>Photos</h4>
+        <% @artists.photos.each do |photo| %>
+          <%= image_tag photo.image %>
+          <% end %>
+
 
     </div>
   </div>
