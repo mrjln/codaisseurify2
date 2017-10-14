@@ -1,0 +1,12 @@
+<%= form_for @artist,  html: { multipart: true } do |f| %>
+
+<!-- Name and Description start with a div -->
+        <div class="form-group">
+          <label> Titel of the Song: </label>
+              <%= f.text_field :songs, placeholder:"Name of song", class: "form-control" %>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+
+<% end %>

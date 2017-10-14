@@ -2,7 +2,15 @@
   <div class="panel-heading"><%= @artist.name %></div>
 
 <h4> Songs </h4>
-  <%= @artist.songs %>
+<ul>
+  <% @artist.songs.each do |song| %>
+   <li><%= song.titel %></li>
+  <%end%>
+</ul>
+
+<h4> Add a song </h4>
+
+<%= render 'form' %>
 
 </div>
 </div>

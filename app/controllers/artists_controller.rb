@@ -3,12 +3,23 @@ class ArtistsController < ApplicationController
 
   def index
      @artists = Artist.all
-
   end
 
   def show
-     @artists = Artist.all 
+     @artists = Artist.all
+     @songs = @artist.songs
   end
+
+  def create
+   @artist = artists.build(artist_params)
+
+   if @artist.save
+      flash[:notice] = "artist created"
+      redirect_to @artist
+   else
+     render :new
+   end
+ end
 
 
   private
@@ -39,18 +50,18 @@ end
 
 
 
-#def set_event
-#  @event = Event.find(params[:id])
+#def set_artist
+#  @artist = artist.find(params[:id])
 #end
 
-#def event_params
+#def artist_params
 #  params
-#    .require(:event)
+#    .require(:artist)
 #    .permit(
 #         :name,:description, :location, :price, :capacity, :includes_food,
 #         :includes_drinks, :starts_at, :ends_at, :active, theme_ids: []
 #    )
-    #theme_ids is and array because an event can have many themes
+    #theme_ids is and array because an artist can have many themes
 #end
 
 
