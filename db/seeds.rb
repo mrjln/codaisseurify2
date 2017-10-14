@@ -1,3 +1,6 @@
+Photo.destroy_all
+Artist.destroy_all
+Song.destroy_all
 
 #seed some Artists
 artist_1 = Artist.create!(
@@ -81,3 +84,9 @@ song_8= Song.create(
   album:"Sing when your winning",
   artist: artist_4,
 )
+
+# Photos
+photo1 = Photo.create!(remote_image_url: "", artist: artist_1)
+photo2 = Photo.create!(remote_image_url: "", artist: artist_2)
+photo3 = Photo.create!(remote_image_url: "", artist: artist_3)
+photo4 = Photo.create!(remote_image_url: "", artist: artist_4)
