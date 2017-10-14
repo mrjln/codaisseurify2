@@ -1,6 +1,6 @@
 
 #seed some Artists
-artist_1 = Artist.create(
+artist_1 = Artist.create!(
   name: "Melody Gardot",
   biography: "Melody Gardot(born February 2, 1985) is an American jazz singer whose career began
   after being injured in a bicycle accident. She has been influenced by such blues and jazz artists
@@ -8,7 +8,7 @@ artist_1 = Artist.create(
   as Latin music artists such as Caetano Veloso. She has been nominated for a Grammy Award.",
   hometown: "Philadelphia",)
 
-artist_2 = Artist.create(
+artist_2 = Artist.create!(
   name: "Florence and the Machine",
   biography: "Florence and the Machine (stylised as Florence + the Machine) are an English indie rock band
   that formed in London in 2007, consisting of lead singer Florence Welch, keyboardist Isabella Summers, and
@@ -16,14 +16,14 @@ artist_2 = Artist.create(
    production and also Welch's powerful vocal performances.",
   hometown: "London",)
 
-artist_3 = Artist.create(
+artist_3 = Artist.create!(
  name: "Bob Marley",
  biography: "Robert Nesta Marley, OM (6 February 1945 – 11 May 1981) was a Jamaican
  singer-songwriter, musician, guitarist and a musical and cultural icon who
   achieved international fame and acclaim",
  hometown: "TrenchTown, Kingston Jamaica",)
 
-artist_4 = Artist.create(
+artist_4 = Artist.create!(
  name: "Robbie Williams",
  biography: "Robert Peter Williams (born 13 February 1974)
  is an English singer, songwriter and actor. He was a member of the pop
