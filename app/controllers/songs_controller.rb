@@ -10,8 +10,8 @@ class SongsController < ApplicationController
     end
 
     def create
-      @song = @artist.song.new(song_params)
-      if song.save?
+      @song = @artist.songs.new(song_params)
+      if @song.save
         redirect_to @artist, notice: "Song Added"
       else
         redirect_to @artist, notice: "Please add a song"
@@ -23,7 +23,6 @@ class SongsController < ApplicationController
         @song.destroy
         redirect_to @artist, notice: "Song deleted!"
     end
-
 
 
     private

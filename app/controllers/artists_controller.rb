@@ -6,6 +6,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
+     @artists = Artist.all
      @artist = Artist.find(params[:id])
      @song = Song.new
   end
@@ -13,7 +14,7 @@ class ArtistsController < ApplicationController
   def destroy
     set_artist
     @artist.destroy
-    redirect_to artists_path
+    redirect_to artists_path, notice: "Artist Deleted"
   end
 
 

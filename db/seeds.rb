@@ -90,7 +90,14 @@ song_8= Song.create(
 )
 
 # Photos
-photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997627/Melody_Gardot_we3jfc.jpg", artist: artist_1)
-photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/florencemachine_s7ac3o.jpg", artist: artist_2)
-photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/Bob_Marley_qih5du.jpg", artist: artist_3)
-photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/Robbie_Williams_ah0d9n.jpg", artist: artist_4)
+
+photo1 = Photo.create!(remote_image_url: "", artist: artist_1)
+photo2 = Photo.create!(remote_image_url: "", artist: artist_2)
+photo3 = Photo.create!(remote_image_url: "", artist: artist_3)
+photo4 = Photo.create!(remote_image_url: "", artist: artist_4)
+
+
+#photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997627/Melody_Gardot_we3jfc.jpg", artist: artist_1)
+#photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/florencemachine_s7ac3o.jpg", artist: artist_2)
+#photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/Bob_Marley_qih5du.jpg", artist: artist_3)
+#photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/du3yzngfr/image/upload/v1507997626/Robbie_Williams_ah0d9n.jpg", artist: artist_4)
