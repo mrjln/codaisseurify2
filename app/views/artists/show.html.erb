@@ -6,10 +6,11 @@
 
 
     <h2> Songs: </h2>
-      <ul>
+
           <% @artist.songs.each do |song| %>
+      <ul>
            <li><%= song.titel %></li>
-           <%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
+           <button><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
       </ul>
 
       <%end%>
