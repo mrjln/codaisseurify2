@@ -1,10 +1,12 @@
 <div class = "container-fluid">
     <h1>  Artists </h1>
+
+    <div class = "Artist">
       <% @artists.each do |artist| %>
 
           <% if artist.photos.any? %>
             <% artist.photos.each do |photo|%>
-            <%= image_tag photo.image  %>
+               <%= image_tag photo.image.thumbnail  %>
             <% end %>
           <%else %>
           <p> This artist has no picture</p>
