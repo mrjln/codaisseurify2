@@ -1,16 +1,3 @@
-
-
-<!--<% form_for [@artist, @song], html: { multipart: true }  do |f| %>
-
-<div class="form-group">
-<%= f.label "Add a new Song" %>
-<%= f.text_field :titel, :class => 'form-control', :placeholder => 'Title',  autocomplete: "off" %>
-</div>
-<div class = "actions">
-<%= f.submit (@song.new_record? ? "Add" : "Update"), :class => "btn btn-primary" %>
-</div>
-<%end %> -->
-
 <%= form_for [@artist, @song],  html: { multipart: true } do |f| %>
 
   <div class="form-group">
@@ -21,6 +8,5 @@
   <div class="actions">
    <%= f.submit "Save", class: "btn btn-primary" %>
  </div>
-
 
 <% end %>
