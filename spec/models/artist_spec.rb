@@ -8,4 +8,9 @@ RSpec.describe Artist, type: :model do
       expect(artist.errors).to have_key(:name)
     end
   end
+
+#rspec model test with shouda-matcher format
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:biography) }
+  end
 end
