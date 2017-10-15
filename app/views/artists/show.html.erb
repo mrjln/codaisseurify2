@@ -5,17 +5,16 @@
   <div class="panel-body">
     <h2> Biography </h2>
       <%= @artist.biography %>
-
-    <div class = "Songs">
+  <div class="panel-body">
     <h2> Songs: </h2>
           <% @artist.songs.each do |song| %>
       <ul>
-           <li><%= song.titel %> - <%= song.album %></li> - <%= song.year %> </li>
+           <li><%= song.titel %> - Album: <%= song.album %></li> - Year: <%= song.year %> </li>
            <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
       </ul>
       <%end%>
     </div>
-
+<hr>
     <h4> Add a song to the artist?</h4>
         <%= render "shared/form" %>
 

@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_artist, only: [:index, :create, :destroy]
+  before_action :set_artist, only: [:index, :show, :create, :destroy]
 
     def index
       @songs = @artist.songs
@@ -11,15 +11,12 @@ class SongsController < ApplicationController
 
     def create
       @song = @artist.songs.new(song_params)
-
       if @song.save
         redirect_to @artist, notice: "Song Added"
       else
         redirect_to @artist, notice: "You did not add a song"
       end
     end
-
-
 
     def destroy
         @song = @artist.songs.find(params[:id])

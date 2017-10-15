@@ -14,7 +14,7 @@ RSpec.describe Song, type: :model do
     it { is_expected.to validate_presence_of(:titel) }
   end
 
-#Test for associations
+#Test for association
   describe "association with Artist" do
     let(:artist) { create :artist }
 
