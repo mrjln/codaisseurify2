@@ -1,7 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
+body {
+background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+min-height:100vh;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
