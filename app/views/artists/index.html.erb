@@ -11,7 +11,6 @@
           <% end %>
 
           <h4> <%= link_to artist.name, artist, class: "btn btn-default" %> </h4>
-          <%= link_to "Delete this Artist", artist_path(artist.id), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure you want to delete this artist and all associated songs?" } %>
       <% end %>
   </div>
 </div>

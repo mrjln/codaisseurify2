@@ -11,12 +11,15 @@ class SongsController < ApplicationController
 
     def create
       @song = @artist.songs.new(song_params)
+
       if @song.save
         redirect_to @artist, notice: "Song Added"
       else
-        redirect_to @artist, notice: "Please add a song"
+        redirect_to @artist, notice: "You did not add a song"
       end
     end
+
+
 
     def destroy
         @song = @artist.songs.find(params[:id])
@@ -35,6 +38,5 @@ class SongsController < ApplicationController
     def song_params
       params.require(:song).permit(:titel, :artist_id)
     end
-
 
 end
