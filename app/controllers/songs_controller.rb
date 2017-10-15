@@ -24,7 +24,6 @@ class SongsController < ApplicationController
         redirect_to @artist, notice: "Song deleted!"
     end
 
-
     private
 
     def set_artist
