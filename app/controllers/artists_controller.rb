@@ -7,18 +7,8 @@ class ArtistsController < ApplicationController
 
   def show
      @artists = Artist.all
-     @songs = @artist.songs
+     @songs = Song.new
   end
-
-  def update
-    respond_to do |format|
-       if @artist.build(artist_params)
-         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
-       else
-         render :edit
-       end
-     end
-   end
 
    def destroy
      set_artist
@@ -26,18 +16,30 @@ class ArtistsController < ApplicationController
      redirect_to artists_path
    end
 
-  private
-
-  def set_artist
-    @artist = Artist.find(params[:id])
-  end
-
-  def artist_params
-      params
-     .permit(:name, :biography, :hometown, :songs)
-   end
-#
 end
+
+
+   #def update
+   #  respond_to do |format|
+   #     if @artist.build(artist_params)
+   #       format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
+   #     else
+   #       render :edit
+   #     end
+   #   end
+   # end
+#  private
+
+  #def set_artist
+  #  @artist = Artist.find(params[:id])
+  #end
+
+  #def artist_params
+  #    params
+  #   .permit(:name, :biography, :hometown, :songs)
+  # end
+#
+
 
 
 
