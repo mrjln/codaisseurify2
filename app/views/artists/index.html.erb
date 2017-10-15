@@ -1,7 +1,8 @@
-<div class = "container-fluid">
+<div class = "container">
+  <div class="row">
     <h1>  Artists </h1>
 
-    <div class = "Artist">
+    <div class="span8">
       <% @artists.each do |artist| %>
 
           <% if artist.photos.any? %>
@@ -11,8 +12,10 @@
           <%else %>
           <p> This artist has no picture</p>
           <% end %>
-
+    </div>
+    <div class="span4">
           <h4> <%= link_to artist.name, artist, class: "btn btn-default" %> </h4>
       <% end %>
+    </div>
   </div>
 </div>

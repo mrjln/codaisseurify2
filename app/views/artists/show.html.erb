@@ -1,19 +1,19 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @artist.name %></div>
 
+  <div class="panel-body">
     <h2> Biography </h2>
     <%= @artist.biography %>
-
-
+    <div class = "Songs">
     <h2> Songs: </h2>
-
           <% @artist.songs.each do |song| %>
       <ul>
-           <li><%= song.titel %></li>
-           <button><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
+           <li><%= song.titel %> - <%= song.album %></li> - <%= song.year %> </li>
+           <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
       </ul>
 
       <%end%>
+    </div>
 
 
     <h4> Add a song to the artist?</h4>
@@ -22,7 +22,7 @@
 
 
     <h4> Delete this Artist?</h4>
-        <%= link_to "Delete this Artist", artist_path(@artist.id), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure you want to delete this artist and all associated songs?" } %>
+        <%= link_to "Delete this Artist", artist_path(@artist.id), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this artist and all associated songs?" } %>
 
-
+  </div>
 </div>
