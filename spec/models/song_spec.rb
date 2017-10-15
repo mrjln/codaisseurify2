@@ -11,7 +11,7 @@ RSpec.describe Song, type: :model do
 
 #One more validation test of the model with shoulda-matchers. Does the same as above.
   describe "validations" do
-    it { is_expected.to validate_presence_of(:year) }
+    it { is_expected.to validate_presence_of(:titel) }
   end
 
   describe "association with Artist" do
