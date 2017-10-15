@@ -12,5 +12,9 @@
 
 <%= render 'form' %>
 
+<h1> Delete this Artist</h1>
+<button><%= link_to "Delete this artist", artist_path(@artist.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
+
+
 </div>
 </div>

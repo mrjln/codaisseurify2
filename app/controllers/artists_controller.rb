@@ -1,9 +1,8 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show]
+  before_action :set_artist, only: [:show, :update]
 
   def index
      @artists = Artist.all
-     @photos = @artist.photos
   end
 
   def show
@@ -11,17 +10,21 @@ class ArtistsController < ApplicationController
      @songs = @artist.songs
   end
 
-  def create
-   @artist = artists.build(artist_params)
-
-   if @artist.save
-      flash[:notice] = "artist created"
-      redirect_to @artist
-   else
-     render :new
+  def update
+    respond_to do |format|
+       if @artist.build(artist_params)
+         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
+       else
+         render :edit
+       end
+     end
    end
- end
 
+   def destroy
+     set_artist
+     @artist.destroy
+     redirect_to artists_path
+   end
 
   private
 
@@ -29,6 +32,11 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
 
+  def artist_params
+      params
+     .permit(:name, :biography, :hometown, :songs)
+   end
+#
 end
 
 

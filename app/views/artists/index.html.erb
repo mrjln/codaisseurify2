@@ -10,15 +10,15 @@
         <div class="col-md-7">
 
           <h4> <%= link_to artist.name, artist, class: "btn btn-default" %> </h4>
-          <% end %>
 
+          <div class="panel-body">
+          <%= link_to "Delete", artist_path(artist.id), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+          <% end %>
         </div>
 
 
-        <h4>Photos</h4>
-        <% @artists.photos.each do |photo| %>
-          <%= image_tag photo.image %>
-          <% end %>
+
 
 
     </div>
