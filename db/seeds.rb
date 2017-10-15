@@ -90,7 +90,6 @@ song_8= Song.create(
 )
 
 # Photos
-
 photo1 = Photo.create!(remote_image_url: "", artist: artist_1)
 photo2 = Photo.create!(remote_image_url: "", artist: artist_2)
 photo3 = Photo.create!(remote_image_url: "", artist: artist_3)
