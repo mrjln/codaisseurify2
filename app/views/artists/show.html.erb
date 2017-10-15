@@ -9,14 +9,12 @@
       </ul>
       <%end%>
 
-
-
-  <h4> Delete this Artist?</h4>
-  <button><%= link_to "Delete this artist", artist_path(@artist.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
-
   <h4> Add a song to the artist?</h4>
 
     <%= render "shared/form" %>
 
   </div>
 </div>
+
+<!--  <h4> Delete this Artist?</h4>
+  <button><%= link_to "Delete this artist", artist_path(@artist.id), method: :delete, data: {confirm: "Are you sure?"} %></button> -->
