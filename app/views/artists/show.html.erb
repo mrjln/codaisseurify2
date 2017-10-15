@@ -1,5 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @artist.name %></div>
+
     <h2> Biography </h2>
     <%= @artist.biography %>
 
@@ -10,13 +11,17 @@
            <li><%= song.titel %></li>
            <%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
       </ul>
+
       <%end%>
-    <h4> Delete this Artist?</h4>
-        <%= link_to "Delete this Artist", artist_path(@artist.id), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure you want to delete this artist and all associated songs?" } %>
+
 
     <h4> Add a song to the artist?</h4>
 
     <%= render "shared/form" %>
 
-  
+
+    <h4> Delete this Artist?</h4>
+        <%= link_to "Delete this Artist", artist_path(@artist.id), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure you want to delete this artist and all associated songs?" } %>
+
+
 </div>
