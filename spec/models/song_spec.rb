@@ -14,12 +14,12 @@ RSpec.describe Song, type: :model do
     it { is_expected.to validate_presence_of(:titel) }
   end
 
+#Test for associations
   describe "association with Artist" do
     let(:artist) { create :artist }
 
     it "belongs to an Artist" do
       song = artist.songs.build(titel: "My Heart Will Go On")
-
       expect(song.artist).to eq(artist)
     end
   end
