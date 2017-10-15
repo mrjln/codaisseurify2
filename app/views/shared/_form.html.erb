@@ -1,7 +1,9 @@
-<% form_for [@artist, @song] do |f| %>
+
+<div class="form-group">
+<% form_for [@artist, @song], html: { multipart: true }  do |f| %>
 <%= f.label "Add a new Song" %>
 <%= f.text_field :titel, :class => 'form-control', :placeholder => 'Title',  autocomplete: "off" %>
 
 <%= f.submit (@song.new_record? ? "Add" : "Update"), :class => "btn btn-primary" %>
-
+</div>
 <%end %>

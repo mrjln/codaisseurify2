@@ -1,20 +1,20 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show, :update]
+
 
   def index
      @artists = Artist.all
   end
 
   def show
-     @artists = Artist.all
-     @songs = Song.new
+     @artist = Artist.find(params[:id])
+     @song = Song.new
   end
 
-   def destroy
-     set_artist
-     @artist.destroy
-     redirect_to artists_path
-   end
+  def destroy
+    set_artist
+    @artist.destroy
+    redirect_to artists_path
+  end
 
 end
 

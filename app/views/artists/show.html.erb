@@ -1,20 +1,22 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @artist.name %></div>
 
-<h4> Songs </h4>
-<ul>
-  <% @artist.songs.each do |song| %>
-   <li><%= song.titel %></li>
-  <%end%>
-</ul>
-
-<h4> Add a song </h4>
-
-<%= render "shared/form" %>
-
-<h1> Delete this Artist</h1>
-<button><%= link_to "Delete this artist", artist_path(@artist.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
+    <h4> Songs: </h4>
+      <ul>
+          <% @artist.songs.each do |song| %>
+           <li><%= song.titel %></li>
+           <%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
+      </ul>
+      <%end%>
 
 
-</div>
+
+  <h4> Delete this Artist?</h4>
+  <button><%= link_to "Delete this artist", artist_path(@artist.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
+
+  <h4> Add a song to the artist?</h4>
+
+    <%= render "shared/form" %>
+
+  </div>
 </div>
