@@ -3,7 +3,7 @@
     <h1>  Artists </h1>
       <% @artists.each do |artist| %>
 
-      <div class="left">
+      <div class="container_item">
           <% if artist.photos.any? %>
             <% artist.photos.each do |photo|%>
                <%= image_tag photo.image.thumbnail  %>

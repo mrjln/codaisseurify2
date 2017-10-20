@@ -20,3 +20,18 @@ hr {
 .left {
   float:left;
 }
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.container_item {
+  width: 100vw;
+  height: 100vw;
+  overflow: hidden;
+  position: relative;
+}
