@@ -8,10 +8,14 @@
   <div class="panel-body">
     <h2> Songs: </h2>
           <% @artist.songs.each do |song| %>
-      <ul>
-           <li><%= song.titel %> - Album: <%= song.album %></li> - Year: <%= song.year %> </li>
-           <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
-      </ul>
+          <table style="width:80%">
+      <tr class = "song">
+           <td class = "song_titel" id = "<%=song.id%>" width="40%">
+                                             <%= song.titel %> </td>
+           <td width="40%"> Dubbelcheck: <%=song.id%> </td>
+           <td width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></td>
+      </tr>
+    </table>
       <%end%>
   </div>
 <hr>
