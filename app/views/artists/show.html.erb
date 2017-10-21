@@ -13,7 +13,7 @@
            <td class = "song_titel" id = "<%=song.id%>" width="40%">
                                              <%= song.titel %> </td>
            <td width="40%"> Dubbelcheck: <%=song.id%> </td>
-           <td width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></td>
+           <td class = "delete button" width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></td>
       </tr>
     </table>
       <%end%>
