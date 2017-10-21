@@ -1,3 +1,5 @@
+
+
 function submitSong(event) {
   event.preventDefault();
   resetErrors();
@@ -11,7 +13,7 @@ function createSong(titel) {
 
   $.ajax({
     type: "POST",
-    url: '/songs.json',
+    url: "/artists/" + artistId + '/songs',
     data: JSON.stringify({
         song: newSong
     }),

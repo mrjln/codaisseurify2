@@ -69,3 +69,7 @@ end
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
+
+Rails.application.assets.context_class.class_eval do
+  include Rails.application.routes.url_helpers
+end
