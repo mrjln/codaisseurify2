@@ -15,7 +15,7 @@ class SongsController < ApplicationController
         respond_to do |format|
         if @song.save
           format.html { redirect_to @artist, notice: 'Song Added with HTML' }
-          format.json { render :show, status: :created, location: @artist }
+          format.json { render :json, status: :created, location: @artist }
           #render :show will direct to show.json.jbuilder
         else
           format.html { redirect_to @artist, notice: 'You did not add a song' }

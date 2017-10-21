@@ -3,8 +3,8 @@
 function submitSong(event) {
   event.preventDefault();
   resetErrors();
-  createSong($("#new_song_titel").val());
-  ($("#new_song_titel").val(null));
+  createSong($("#song_titel").val());
+  ($("#song_titel").val(null));
 }
 
 var localPath = String(window.location.pathname)+'.json';
@@ -13,7 +13,7 @@ function createSong(titel) {
   var newSong = { titel: titel};
 
   $.ajax({
-    type: "POST",
+    type: "GET",
     url: localPath,
     data: JSON.stringify({
         song: newSong
