@@ -10,7 +10,7 @@ function createSong(titel) {
 
   $.ajax({
     type: "POST",
-    url: "artists/69.json",
+    url: "/artists/:artist_id.json",
     data: JSON.stringify({
         song: newSong
     }),
@@ -46,5 +46,5 @@ function resetErrors() {
 
 
 $(document).ready(function() {
- $("form#new_song").bind('submit', submitSong);
+// $("form#new_song").bind('submit', submitSong);
 });
