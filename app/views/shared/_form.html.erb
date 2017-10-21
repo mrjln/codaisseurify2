@@ -1,14 +1,10 @@
-<form>
-<%= form_for [@artist, @song],  html: { multipart: true } do |f| %>
+
+<%= form_for [@artist, @song] do |f| %>
 
   <div class="form-group">
     <label> Title of the Song: </label>
-    <span id="new-song"> <%= f.text_field :titel, placeholder:"Enter title of song", class: "form-control" %> </span>
+     <span id= "new_song_titel"> <%= f.text_field :titel, placeholder:"Enter title of song", class: "form-control" %> </span>
   </div>
 
-  <div class="actions">
-   <%= f.submit "Save", class: "btn btn-primary" %>
- </div>
 
 <% end %>
-</form>

@@ -1,36 +1,48 @@
-
 function submitSong(event) {
   event.preventDefault();
-
-  var title = $("#new-song").val();
-//@marjolein je hebt een span gecreeerd rondom je form-input met id = "new-song"
-
-  createSong(title);
-
-  $("#new-todo").val(null);
+  resetErrors();
+  createSong($("#new_song_titel").val());
+  ($("#new_song_titel").val(null));
 }
 
-function createSong(title) {
+function createSong(titel) {
+  var newSong = { titel: titel};
 
-  var listItem = $("<li></li>");
-  listItem.addClass("song");
+  $.ajax({
+    type: "POST",
+    url: "artists/69.json",
+    data: JSON.stringify({
+        song: newSong
+    }),
+    contentType: "application/json",
+    dataType: "json"})
 
-  var label = $('<label></label>');
-  label.attr('for',"song-"+ newSongId();
-  label.html(title);
+    .done(function(data) {
+      console.log(data);
 
-  listItem.append(label);
+      var listItem = $("<li></li>");
+      listItem.addClass("song");
 
-  $("#songlist").append( listItem );
+      var label = $('<label></label>');
+      label.attr('for',"song-"+ data.id);
+      label.html(titel);
 
+      listItem.append(label);
+      $("#songlist").append( listItem );
+
+    })
+
+    .fail(function(error) {
+      console.log(error);
+
+
+    });
 }
 
-function newSongId() {
-  return $(".song").length  + 1;
+function resetErrors() {
+  $("#error_message").remove();
+  $("#new_song_titel").removeClass("error");
 }
-//je begint hier dus weer met een song id van 2 of 1, niet geheel goed maar het werkt
-
-
 
 
 $(document).ready(function() {
