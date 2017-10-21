@@ -11,7 +11,7 @@ function createSong(titel) {
 
   $.ajax({
     type: "POST",
-    url: '/artists/:artist_id.json',
+    url: '/songs.json',
     data: JSON.stringify({
         song: newSong
     }),
