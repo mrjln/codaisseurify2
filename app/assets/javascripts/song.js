@@ -28,10 +28,15 @@ function createSong(titel) {
       label.attr('for','song-999');
       label.html(titel);
 
+      var labelDelete = $('<label class="deleteOneSong"></label>');
+      labelDelete.html('Delete Link');
+
       var tableRow = $('<tr class="song"></tr>')
-        .append($('<td>').append(label));
+        .append($('<td>').append(label))
+        .append($('<td>').append(labelDelete));
 
         $('#songsTable').append(tableRow);
+
 
     })
 
