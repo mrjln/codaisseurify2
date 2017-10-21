@@ -1,5 +1,8 @@
 class ArtistsController < ApplicationController
 
+  # GET /artists
+  # GET /artist.json
+
   def index
      @artists = Artist.all
   end

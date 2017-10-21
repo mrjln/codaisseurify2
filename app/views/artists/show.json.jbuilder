@@ -5,5 +5,6 @@ json.array!(@artist.songs) do |song|
   :year,
   :album,
   :created_at,
-  :updated_at
+  :updated_at,
+  :artist
 end
