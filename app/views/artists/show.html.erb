@@ -5,17 +5,19 @@
   <div class="panel-body">
     <h2> Biography </h2>
       <%= @artist.biography %>
+
+
   <div class="panel-body">
     <h2> Songs: </h2>
-          <% @artist.songs.each do |song| %>
-          <table style="width:80%">
-      <tr class = "song">
-           <td class = "song_titel" id = "<%=song.id%>" width="40%">
-                                             <%= song.titel %> </td>
-           <td width="40%"> Dubbelcheck: <%=song.id%> </td>
-           <td class = "delete button" width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></td>
-      </tr>
-    </table>
+    <% @artist.songs.each do |song| %>
+
+    <ul id = "songlist" >
+      <li class = "song" >
+      <label for="song-<%= song.id %>"> <%= song.titel %>  </label>
+      <label class = "deletebutton" width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></label>
+      </li>
+    </ul>
+
       <%end%>
   </div>
 <hr>
