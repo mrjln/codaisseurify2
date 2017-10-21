@@ -7,10 +7,11 @@ function submitSong(event) {
 
 function createSong(titel) {
   var newSong = { titel: titel};
+  var path =
 
   $.ajax({
     type: "POST",
-    url: "/artists/:artist_id.json",
+    url: '/artists/:artist_id.json',
     data: JSON.stringify({
         song: newSong
     }),
@@ -20,21 +21,19 @@ function createSong(titel) {
     .done(function(data) {
       console.log(data);
 
-      var listItem = $("<li></li>");
-      listItem.addClass("song");
-
       var label = $('<label></label>');
-      label.attr('for',"song-"+ data.id);
+      label.attr('for','song-999');
       label.html(titel);
 
-      listItem.append(label);
-      $("#songlist").append( listItem );
+      var tableRow = $('<tr class="song"></tr>')
+        .append($('<td>').append(label));
+
+        $('#songsTable').append(tableRow);
 
     })
 
     .fail(function(error) {
       console.log(error);
-
 
     });
 }
@@ -46,5 +45,5 @@ function resetErrors() {
 
 
 $(document).ready(function() {
-// $("form#new_song").bind('submit', submitSong);
+ $("form").bind('submit', submitSong);
 });

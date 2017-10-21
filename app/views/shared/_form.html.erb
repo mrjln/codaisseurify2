@@ -1,10 +1,9 @@
 
-<%= form_for [@artist, @song] do |f| %>
+<%= form_for [@artist,@song] do |f| %>
 
   <div class="form-group">
     <label> Title of the Song: </label>
-     <span id= "new_song_titel"> <%= f.text_field :titel, placeholder:"Enter title of song", class: "form-control" %> </span>
+     <%= f.text_field :titel, placeholder: "Song title", data: {artist: @artist.id}, class: "form-control" %>
+    <%= f.submit "- Save -", id: "submit-button", class: "btn btn-success", data: { disable_with: false }%>
   </div>
-
-
 <% end %>

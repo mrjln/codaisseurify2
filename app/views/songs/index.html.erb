@@ -1,1 +1,7 @@
-<h1> Index page of songs</h1>
+<h1> All songs of <%= @artist.name %> </h1>
+
+
+<ul>
+ <% @songs.each do |song| %>
+<li> <%= song.titel %> </li>
+<% end%>

@@ -9,6 +9,7 @@ class ArtistsController < ApplicationController
      @song = Song.new
   end
 
+
   def destroy
     set_artist
     @artist.destroy

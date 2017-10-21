@@ -11,19 +11,22 @@
     <h2> Songs: </h2>
     <% @artist.songs.each do |song| %>
 
-    <ul id = "songlist" >
-      <li class = "song" >
-      <label for="song-<%= song.id %>"> <%= song.titel %>  </label>
+    <table id ="songsTable">
+      <tr class = "song" >
+        <td width="80%">
+          <label for="song-<%= song.id %>"> <%= song.titel %>  </label>
+        </td>
+        <td width="40%">
       <label class = "deletebutton" width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></label>
-      </li>
-    </ul>
-
+        </td>
+    </tr>
+  </table>
       <%end%>
   </div>
 <hr>
     <div class="panel-body">
     <h4> Add a song to the artist?</h4>
-        <%= render "shared/form" %>
+        <%= render "shared/form", artist: @artist %>
 
     <h4> Delete this Artist?</h4>
         <%= link_to "Delete this Artist", artist_path(@artist.id), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this artist and all associated songs?" } %>
