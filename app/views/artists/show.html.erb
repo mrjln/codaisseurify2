@@ -17,7 +17,7 @@
           <label for="song-<%= song.id %>"> <%= song.titel %>  </label>
         </td>
         <td width="40%">
-      <label class = "deletebutton" width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></label>
+      <label class = "deleteOneSong" width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></label>
         </td>
     </tr>
   </table>
@@ -27,6 +27,14 @@
     <div class="panel-body">
     <h4> Add a song to the artist?</h4>
         <%= render "shared/form" %>
+      </div>
+
+      <div class="panel-body">
+
+    <h4> Delete all songs from this artist? </h4>
+    <%= button_to "delete", @songs, :method => :delete, :class => 'deleteAllSongs' %> %>
+
+ </div>
 
     <h4> Delete this Artist?</h4>
         <%= link_to "Delete this Artist", artist_path(@artist.id), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this artist and all associated songs?" } %>
