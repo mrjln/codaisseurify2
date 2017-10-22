@@ -14,7 +14,7 @@ function createSong(titel) {
 
 //AJAX CREATE A NEW SONG
   $.ajax({
-    type: "GET",
+    type: "GET", //USED GET BECAUSE POST 404
     url: localPath,
     data: JSON.stringify({
         song: newSong
@@ -41,7 +41,6 @@ function createSong(titel) {
         .append($('<td>').append(labelDelete));
 
         $('#songsTable').append(tableRow);
-
 
     })
 
@@ -106,6 +105,6 @@ $(document).ready(function() {
 
 $("form").bind('submit', submitSong);
 $("#delete-all-songs").bind('click', deleteAllSongs);
-
+$("#delete-song").bind('click', deleteSong);
 
 });

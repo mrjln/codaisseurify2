@@ -12,6 +12,7 @@
     <% @artist.songs.each do |song| %>
 
     <table id ="songsTable">
+      <tr class = "song"></tr>
       <tr class = "song" >
         <td width="40%">
           <label for="song-<%= song.id %>"> <%= song.titel %>  </label>
