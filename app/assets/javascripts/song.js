@@ -5,6 +5,8 @@ function submitSong(event) {
   resetErrors();
   createSong($("#song_titel").val());
   ($("#song_titel").val(null));
+  $song = $("#song_titel").val(null));
+  var artist =
 }
 
 var localPath = String(window.location.pathname)+'.json';
