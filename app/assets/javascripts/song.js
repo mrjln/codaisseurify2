@@ -12,6 +12,7 @@ var localPath = String(window.location.pathname)+'.json';
 function createSong(titel) {
   var newSong = { titel: titel};
 
+//AJAX CREATE A NEW SONG
   $.ajax({
     type: "GET",
     url: localPath,
@@ -19,7 +20,7 @@ function createSong(titel) {
         song: newSong
     }),
     contentType: "application/json",
-    dataType: "json"})
+    dataType: "json"}) //end of AJAX CREATE NEW SONG
 
     .done(function(data) {
       console.log(data);
@@ -56,9 +57,28 @@ function resetErrors() {
 }
 
 
+//DELETING ALL SONGS WITH AJAX
+
 function deleteAllSongs() {
- $('.song').remove();
-}
+      $('.song').remove();
+
+      $.ajax({
+      type: "DELETE",
+      url: localPath,
+      contentType: "application/json",
+      dataType: "json"
+    })
+
+      .done(function(data){
+        console.log(data);
+
+      })
+
+      .fail(function(error) {
+          console.log(error);
+      });
+
+};
 
 function deleteSong(obj) {
     $(obj).closest('tr').remove();
