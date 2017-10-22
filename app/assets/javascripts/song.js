@@ -78,11 +78,29 @@ function deleteAllSongs() {
           console.log(error);
       });
 
-};
+}
+
+//DELETE JUST 1 SONG WITH AJAX
 
 function deleteSong(obj) {
     $(obj).closest('tr').remove();
- }
+//Hier wijs je aan wat je verwijderd wilt hebben
+        $.ajax({
+          type: "DELETE",
+          url: localPath,
+          data: JSON.stringify,
+          contentType: "application/json",
+          dataType: "json"})
+
+         .done(function(data){
+           console.log(data);
+
+         })
+
+         .fail(function(error) {
+             console.log(error);
+         });
+}
 
 $(document).ready(function() {
 
