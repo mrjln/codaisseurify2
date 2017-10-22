@@ -29,7 +29,7 @@ function createSong(titel) {
       label.html(titel);
 
       var labelDelete = $('<label class="deleteOneSong"></label>');
-      labelDelete.html('Delete Link');
+      labelDelete.html('<a href="#"> Delete this Song </a>');
 
       var tableRow = $('<tr class="song"></tr>')
         .append($('<td>').append(label))
@@ -51,9 +51,9 @@ function resetErrors() {
   $("#new_song_titel").removeClass("error");
 }
 
+
 function deleteAllSongs() {
  $('.song').remove();
-
 }
 
 $(document).ready(function() {
