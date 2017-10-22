@@ -5,8 +5,6 @@ function submitSong(event) {
   resetErrors();
   createSong($("#song_titel").val());
   ($("#song_titel").val(null));
-  $song = $("#song_titel").val(null));
-  var artist =
 }
 
 var localPath = String(window.location.pathname)+'.json';
@@ -53,7 +51,12 @@ function resetErrors() {
   $("#new_song_titel").removeClass("error");
 }
 
+function deleteAllSongs() {
+ $('.song').remove();
+
+}
 
 $(document).ready(function() {
 $("form").bind('submit', submitSong);
+$("#delete-all-songs").bind('click', deleteAllSongs);
 });
