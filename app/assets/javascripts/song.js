@@ -24,12 +24,16 @@ function createSong(titel) {
     .done(function(data) {
       console.log(data);
 
+      var updateSongId = ($("#song").length + 1);
       var label = $('<label></label>');
-      label.attr('for','song-999');
+      label.attr('id','song-'+updateSongId);
       label.html(titel);
 
+
       var labelDelete = $('<label class="deleteOneSong"></label>');
-      labelDelete.html('<a href="#"> Delete this Song </a>');
+      labelDelete.html('<a href="#" onClick="deleteSong(this);" > Delete song </a>');
+      labelDelete.attr('id','song-'+updateSongId);
+      labelDelete.attr('onclick','song-'+updateSongId);
 
       var tableRow = $('<tr class="song"></tr>')
         .append($('<td>').append(label))
@@ -56,7 +60,14 @@ function deleteAllSongs() {
  $('.song').remove();
 }
 
+function deleteSong(obj) {
+    $(obj).closest('tr').remove();
+ }
+
 $(document).ready(function() {
+
 $("form").bind('submit', submitSong);
 $("#delete-all-songs").bind('click', deleteAllSongs);
+
+
 });

@@ -13,11 +13,12 @@
 
     <table id ="songsTable">
       <tr class = "song" >
-        <td width="80%">
+        <td width="40%">
           <label for="song-<%= song.id %>"> <%= song.titel %>  </label>
         </td>
         <td width="40%">
-      <label class = "deleteOneSong" width="20%"> <button class = "btn-warning"><%= link_to "Delete song",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></label>
+      <label class = "deleteOneSong" width="20%"> <button class = "btn-warning"><%= link_to "Delete song with HTML",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></label>
+       <a href="#" onClick="deleteSong(this);" > Delete song </a>
         </td>
     </tr>
   </table>
