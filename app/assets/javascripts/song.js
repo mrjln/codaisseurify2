@@ -3,8 +3,7 @@
 function submitSong(event) {
   event.preventDefault();
   resetErrors();
-  debugger;
-  createSong($("#song_titel").val(),  artistId );
+  createSong($("#song_titel").val());
   ($("#song_titel").val(null));
 }
 
