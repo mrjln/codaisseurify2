@@ -3,19 +3,20 @@
 function submitSong(event) {
   event.preventDefault();
   resetErrors();
-  createSong($("#song_titel").val());
+  debugger;
+  createSong($("#song_titel").val(),  artistId );
   ($("#song_titel").val(null));
 }
 
-var localPath = String(window.location.pathname)+'.json';
+var songForArtistPath = String(window.location.pathname)+'/songs.json';
 
 function createSong(titel) {
   var newSong = { titel: titel};
 
 //AJAX CREATE A NEW SONG
   $.ajax({
-    type: "GET", //USED GET BECAUSE POST 404
-    url: localPath,
+    type: 'POST',
+    url: songForArtistPath,
     data: JSON.stringify({
         song: newSong
     }),
@@ -62,7 +63,7 @@ function deleteAllSongs() {
       $('.song').remove();
 
       $.ajax({
-      type: "DELETE",
+      type: "GET",
       url: localPath,
       contentType: "application/json",
       dataType: "json"
@@ -104,7 +105,7 @@ function deleteSong(obj) {
 $(document).ready(function() {
 
 $("form").bind('submit', submitSong);
-$("#delete-all-songs").bind('click', deleteAllSongs);
-$("#delete-song").bind('click', deleteSong);
+//$("#delete-all-songs").bind('click', deleteAllSongs);
+//$("#delete-song").bind('click', deleteSong);
 
 });
