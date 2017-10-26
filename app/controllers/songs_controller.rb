@@ -11,7 +11,7 @@ class SongsController < ApplicationController
     end
 
     def create
-        @song = Songs.new(song_params)
+        @song = Song.new(song_params)
 
         if @song.save
             redirect_to artist_path(@artist), notice: 'Song Added with HTML'

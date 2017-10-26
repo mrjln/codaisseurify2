@@ -28,12 +28,9 @@ function createSong(titel) {
       var label = $('<label></label>');
       label.html(titel);
 
-      var labelDelete = $('<label class="deleteOneSong"></label>');
-      labelDelete.html('<a href="#" onClick="deleteSong(this);" > Delete song </a>');
-
-      <a href="", class = "link_Delete", id = <%= song.id %> >Delete Song</a>
+      var labelDelete = $('<label></label>');
+      labelDelete.html('<a href="#", class="deletesong"> Delete Song</a>');
       labelDelete.attr('id',SongId);
-      labelDelete.attr('onclick',SongId);
 
       var tableRow = $('<tr class="song"></tr>')
         .append($('<td>').append(label))
@@ -95,7 +92,7 @@ function removeSong(songId) {
           dataType: "json"})
 
          .done(function(data){
-           $(obj).closest('tr').remove();
+           $(data).closest('tr').remove();
 
          })
 
