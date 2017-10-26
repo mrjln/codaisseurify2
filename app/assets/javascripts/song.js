@@ -1,44 +1,44 @@
 
-
 function submitSong(event) {
   event.preventDefault();
   resetErrors();
-  createSong($("#song_titel").val());
-  ($("#song_titel").val(null));
+  var newSong = $("#song_form").val();
+  createSong(newSong);
+  ($("#song_form").val(null));
+
 }
 
-var songForArtistPath = String(window.location.pathname)+'/songs.json';
-
 function createSong(titel) {
-  var newSong = { titel: titel};
 
-//AJAX CREATE A NEW SONG
   $.ajax({
-    type: 'POST',
-    url: songForArtistPath,
+    type: "POST"  ,
+    url: "/api"+ window.location.pathname + "/songs.json",
     data: JSON.stringify({
-        song: newSong
+      song: {
+      titel: titel }
+
     }),
     contentType: "application/json",
-    dataType: "json"}) //end of AJAX CREATE NEW SONG
+    dataType: "json"})
 
     .done(function(data) {
       console.log(data);
 
-      var updateSongId = ($("#song").length + 1);
+      var SongId = data.id
       var label = $('<label></label>');
-      label.attr('id','song-'+updateSongId);
       label.html(titel);
-
 
       var labelDelete = $('<label class="deleteOneSong"></label>');
       labelDelete.html('<a href="#" onClick="deleteSong(this);" > Delete song </a>');
-      labelDelete.attr('id','song-'+updateSongId);
-      labelDelete.attr('onclick','song-'+updateSongId);
+
+      <a href="", class = "link_Delete", id = <%= song.id %> >Delete Song</a>
+      labelDelete.attr('id',SongId);
+      labelDelete.attr('onclick',SongId);
 
       var tableRow = $('<tr class="song"></tr>')
         .append($('<td>').append(label))
         .append($('<td>').append(labelDelete));
+      tableRow.attr('id',SongId)
 
         $('#songsTable').append(tableRow);
 
@@ -56,14 +56,14 @@ function resetErrors() {
 }
 
 
-//DELETING ALL SONGS WITH AJAX
+/*/DELETING ALL SONGS WITH AJAX
 
 function deleteAllSongs() {
       $('.song').remove();
 
       $.ajax({
       type: "GET",
-      url: localPath,
+      url: "/api"+ window.location.pathname + "/songs/" + songId + ".json",
       contentType: "application/json",
       dataType: "json"
     })
@@ -77,22 +77,25 @@ function deleteAllSongs() {
           console.log(error);
       });
 
+} */
+
+function deleteSong(event) {
+  var songId = event.target.id;
+  removeSong(songId);
+  debugger;
 }
 
-//DELETE JUST 1 SONG WITH AJAX
+function removeSong(songId) {
 
-function deleteSong(obj) {
-    $(obj).closest('tr').remove();
-//Hier wijs je aan wat je verwijderd wilt hebben
         $.ajax({
           type: "DELETE",
-          url: localPath,
+          url: "/api"+ window.location.pathname + "/songs/" + songId + ".json",
           data: JSON.stringify,
           contentType: "application/json",
           dataType: "json"})
 
          .done(function(data){
-           console.log(data);
+           $(obj).closest('tr').remove();
 
          })
 
@@ -105,6 +108,6 @@ $(document).ready(function() {
 
 $("form").bind('submit', submitSong);
 //$("#delete-all-songs").bind('click', deleteAllSongs);
-//$("#delete-song").bind('click', deleteSong);
+$(".deletesong").bind('click', deleteSong);
 
 });

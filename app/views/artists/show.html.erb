@@ -12,14 +12,15 @@
     <% @artist.songs.each do |song| %>
 
     <table id ="songsTable">
-      <tr class = "song"></tr>
-      <tr class = "song" >
+      <tr class="song" data-id="<%= song.id %>">
         <td width="40%">
-          <label for="song-<%= song.id %>"> <%= song.titel %>  </label>
+          <%= song.titel %>
+       </td>
+        <td width="40%">
+          <button class = "btn-warning"> <%= link_to "Delete song with HTML",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
         </td>
-        <td width="40%">
-      <label class = "deleteOneSong" width="20%"> <button class = "btn-warning"><%= link_to "Delete song with HTML",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button></label>
-       <a href="#" onClick="deleteSong(this);" > Delete song </a>
+        <td>
+         <label> <a href="#" id="<%= song.id %>" class="deletesong" > Delete song </a></label>
         </td>
     </tr>
   </table>

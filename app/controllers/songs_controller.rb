@@ -13,16 +13,12 @@ class SongsController < ApplicationController
     def create
         @song = Songs.new(song_params)
 
-        respond_to do |format|
         if @song.save
-          format.html { redirect_to artist_path(@artist), notice: 'Song Added with HTML' }
-          format.json { render :show, status: :created, location: @song }
-          #render :show will direct to show.json.jbuilder
+            redirect_to artist_path(@artist), notice: 'Song Added with HTML'
         else
-          format.html { redirect_to @artist, notice: 'You did not add a song' }
-          format.json { render json: @song.errors, status: :unprocessable_entity }
+          redirect_to @artist, notice: 'You did not add a song'
         end
-      end
+
     end
 
     def destroy
