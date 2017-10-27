@@ -58,20 +58,10 @@ function resetErrors() {
 
 function deleteAllSongs(event) {
   event.preventDefault();
-  $.each($(.song), function(index){
-    songId = $(tableRow).data('id');
+  $.each($('.song'), function(index){
+    songId = this.id;
     removeSong(songId)
   });
-
-
-      .done(function(data){
-        console.log(data);
-
-      })
-
-      .fail(function(error) {
-          console.log(error);
-      });
 
 }
 
@@ -102,6 +92,6 @@ function removeSong(songId) {
 $(document).ready(function() {
   $("form").bind('submit', submitSong);
   $(".deleteSong").bind('click', deleteSong );
-  //$("#delete-all-songs").bind('click', deleteAllSongs);
+  $("#delete-all-songs").bind('click', deleteAllSongs);
 
 });
