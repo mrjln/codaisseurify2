@@ -24,18 +24,19 @@ function createSong(titel) {
     .done(function(data) {
       console.log(data);
 
-      var SongId = data.id
+      var songId = data.id
       var label = $('<label></label>');
       label.html(titel);
 
-      var labelDelete = $('<label></label>');
-      labelDelete.html('<a href="#", class="deletesong"> Delete Song</a>');
-      labelDelete.attr('id',SongId);
+      var linkElementDelete = $('<a href=""></a>');
+      linkElementDelete.html("Delete Song");
+      linkElementDelete.attr('id',songId);
+      linkElementDelete.attr('class','deleteSong');
 
       var tableRow = $('<tr class="song"></tr>')
         .append($('<td>').append(label))
-        .append($('<td>').append(labelDelete));
-      tableRow.attr('id',SongId)
+        .append($('<td>').append(linkElementDelete));
+      tableRow.attr('id',songId)
 
         $('#songsTable').append(tableRow);
 
@@ -53,17 +54,15 @@ function resetErrors() {
 }
 
 
-/*/DELETING ALL SONGS WITH AJAX
+//DELETING ALL SONGS WITH AJAX
 
-function deleteAllSongs() {
-      $('.song').remove();
+function deleteAllSongs(event) {
+  event.preventDefault();
+  $.each($(.song), function(index){
+    songId = $(tableRow).data('id');
+    removeSong(songId)
+  });
 
-      $.ajax({
-      type: "GET",
-      url: "/api"+ window.location.pathname + "/songs/" + songId + ".json",
-      contentType: "application/json",
-      dataType: "json"
-    })
 
       .done(function(data){
         console.log(data);
@@ -74,12 +73,11 @@ function deleteAllSongs() {
           console.log(error);
       });
 
-} */
+}
 
 function deleteSong(event) {
   var songId = event.target.id;
   removeSong(songId);
-  debugger;
 }
 
 function removeSong(songId) {
@@ -102,9 +100,8 @@ function removeSong(songId) {
 }
 
 $(document).ready(function() {
-
-$("form").bind('submit', submitSong);
-//$("#delete-all-songs").bind('click', deleteAllSongs);
-$(".deletesong").bind('click', deleteSong);
+  $("form").bind('submit', submitSong);
+  $(".deleteSong").bind('click', deleteSong );
+  //$("#delete-all-songs").bind('click', deleteAllSongs);
 
 });
