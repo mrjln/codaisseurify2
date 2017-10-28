@@ -57,11 +57,19 @@ function resetErrors() {
 //DELETING ALL SONGS WITH AJAX
 
 function deleteAllSongs(event) {
-  event.preventDefault();
-  $.each($('.song'), function(){
+  $.each($('.song'), function(index, tr){
     songId = this.id;
     removeSong(songId)
   });
+}
+
+
+function removeAllSongs() {
+  $('.song-item').each(function(i, obj) {
+    let listItem = $(obj);
+    removeSong(listItem);
+    console.log(listItem)
+  })
 }
 
 function deleteSong(event) {

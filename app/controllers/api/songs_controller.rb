@@ -28,11 +28,10 @@ class Api::SongsController < ApplicationController
     @song = Song.find(params[:id])
     if @song.destroy
       render status: 200, json: {
-        message: "Song was deleted with ajax"
+      message: "Song deleted"
       }.to_json
       end
     end
-
 
   private
 
