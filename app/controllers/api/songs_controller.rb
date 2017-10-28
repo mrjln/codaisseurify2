@@ -1,5 +1,14 @@
 class Api::SongsController < ApplicationController
 
+
+  def show
+    @artist = Artist.find(params[:artist_id])
+    render status: 200, json: {
+      songs: @artist.songs
+    }.to_json
+  end
+
+
   def create
   @artist = Artist.find(params[:artist_id])
   @song = @artist.songs.build(song_params)
@@ -17,7 +26,6 @@ class Api::SongsController < ApplicationController
 
   def destroy
     @song = Song.find(params[:id])
-
     if @song.destroy
       render status: 200, json: {
         message: "Song was deleted with ajax"

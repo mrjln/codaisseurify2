@@ -58,11 +58,10 @@ function resetErrors() {
 
 function deleteAllSongs(event) {
   event.preventDefault();
-  $.each($('.song'), function(index){
+  $.each($('.song'), function(){
     songId = this.id;
     removeSong(songId)
   });
-
 }
 
 function deleteSong(event) {
