@@ -13,15 +13,14 @@
 
     <table id ="songsTable">
       <tr class="song" id="<%= song.id %>">
-        <td width="40%">
+        <td width="90%">
           <%= song.titel %>
        </td>
-        <td width="40%">
-          <button class = "btn-warning"> <%= link_to "Delete song with HTML",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>
-        </td>
         <td>
-           <button><a href="", class = "deleteSong", id = <%= song.id %>> Delete Song</a></button>
+          <a href="", class = "deleteSong", id = <%= song.id %>> Delete Song</a>
+          <!--<button class = "btn-warning"> <%= link_to "Delete song with HTML",[@artist, song], method: :delete, data: {confirm: "You ar deleting a song. Are your sure?"} %></button>-->
         </td>
+
     </tr>
   </table>
       <%end%>

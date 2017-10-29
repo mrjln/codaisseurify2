@@ -1,20 +1,13 @@
-<div class = "container">
+<h1>  Artists </h1>
+<div class="box">
+  <% @artists.each do |artist| %>
+      <% artist.photos.each do |photo|%>
+      <div class="box-item">
+      <%= image_tag photo.image.thumbnail  %>
+<% end %>
+      <h4> <%= link_to artist.name, artist, class: "btn btn-default" %> </h4>
 
-    <h1>  Artists </h1>
-      <% @artists.each do |artist| %>
-
-      <div class="container_item">
-          <% if artist.photos.any? %>
-            <% artist.photos.each do |photo|%>
-               <%= image_tag photo.image.thumbnail  %>
-            <% end %>
-          <%else %>
-          <p> This artist has no picture</p>
-          <% end %>
-
-            <h4> <%= link_to artist.name, artist, class: "btn btn-default" %> </h4>
-        <% end %>
-      </div>
-
+  </div>
+  <% end %>
 
 </div>
